@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Grp2_FoodBuddy</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Log In</string>
+    <string name="second_fragment_label">Sign Up</string>
+    <string name="next">Create an account!</string>
+    <string name="previous">Previous</string>
+    <string name="emailmessage">Enter email:</string>
+    <string name="passwordmessage">Enter password: </string>
+    <string name="conpasswordmessage">Confirm password: </string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_dashboard">Dashboard</string>
+</resources>
