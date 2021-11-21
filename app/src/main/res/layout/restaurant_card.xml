@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:cardBackgroundColor="@color/light_grey"
+            app:cardCornerRadius="15dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:id="@+id/restaurant_logo"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentTop="true"
+                     />
+
+
+                <TextView
+                    android:id="@+id/restaurant_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/restaurant_logo"
+                    android:text="Restaurant Name"
+                    android:textSize="13dp"
+                    android:padding="2dp"
+                    />
+
+                <TextView
+                    android:id="@+id/time_remaining"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/restaurant_name"
+                    android:layout_toRightOf="@+id/restaurant_logo"
+                    android:text="Time Remaining"
+                    android:textSize="13dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/users_in_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/time_remaining"
+                    android:layout_toRightOf="@+id/restaurant_logo"
+                    android:text="Users in group"
+                    android:textSize="13dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/restaurant_distance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/users_in_group"
+                    android:layout_toRightOf="@+id/restaurant_logo"
+                    android:text="Distance"
+                    android:textSize="13dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/restaurant_trust"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/restaurant_distance"
+                    android:layout_toRightOf="@+id/restaurant_logo"
+                    android:text="Trust"
+                    android:textSize="13dp"
+
+                    />
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

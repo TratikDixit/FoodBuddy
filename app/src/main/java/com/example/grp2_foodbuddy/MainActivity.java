@@ -40,10 +40,11 @@ public class MainActivity extends AppCompatActivity {
         mUser = mAuth.getCurrentUser();
 
         newAccount.setOnClickListener(v -> startActivity(new Intent(MainActivity.this,Register.class)));
-
         loginAccount.setOnClickListener(v -> PerformLogin());
     }
     private void PerformLogin() {
+        //sendUserToDashboard();
+
 
         String emailVal = email.getText().toString();
         String passwordVal = password.getText().toString();
