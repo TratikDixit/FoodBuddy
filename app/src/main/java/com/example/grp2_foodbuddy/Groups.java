@@ -13,8 +13,17 @@ public class Groups {
     private double threshold_rating;
     private GeoPoint pickup_location;
     private int numParticipants;
+    private double distance_to_pickup;
 
     public Groups() {
+    }
+
+    public void setDistance_to_pickup(double distance_to_pickup){
+        this.distance_to_pickup = distance_to_pickup;
+    }
+
+    public double getDistance_to_pickup(){
+        return this.distance_to_pickup;
     }
 
     public Groups(int duration,double rating, User initiator, int maxParticipants, List<User> participants, GeoPoint geopoint) {

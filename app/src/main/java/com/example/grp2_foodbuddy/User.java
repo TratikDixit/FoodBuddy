@@ -7,6 +7,8 @@ public class User {
     private float rating;
     List<Groups> currentGroups;
 
+    public User(){}
+
     public User(String name, float rating, List<Groups> currentGroups){
         this.name = name;
         this.rating = rating;

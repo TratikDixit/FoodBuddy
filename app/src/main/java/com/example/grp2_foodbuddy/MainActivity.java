@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser mUser;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    User current_user = new User();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
         loginAccount.setOnClickListener(v -> PerformLogin());
     }
     private void PerformLogin() {
-        //sendUserToDashboard();
-
 
         String emailVal = email.getText().toString();
         String passwordVal = password.getText().toString();
@@ -57,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         else {
             mAuth.signInWithEmailAndPassword(emailVal, passwordVal).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
+                    System.out.println(task.getResult());
                     sendUserToDashboard();
                     Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
                 } else {
