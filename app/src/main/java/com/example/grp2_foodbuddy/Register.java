@@ -1,10 +1,20 @@
 package com.example.grp2_foodbuddy;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.view.View;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.GeoPoint;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -16,6 +26,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Register extends AppCompatActivity {
 
@@ -24,6 +39,7 @@ public class Register extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser mUser;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +49,7 @@ public class Register extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         conpassword = findViewById(R.id.conpassword);
-
+        db = FirebaseFirestore.getInstance();
         signupAccount = findViewById(R.id.signupAccount);
 
         mAuth = FirebaseAuth.getInstance();
@@ -65,6 +81,7 @@ public class Register extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
+                        addToFirebase();
                         sendUserToDashboard();
                         Toast.makeText(Register.this, "Success", Toast.LENGTH_SHORT).show();
                     } else {
@@ -76,7 +93,54 @@ public class Register extends AppCompatActivity {
         }
     }
 
+    private void addToFirebase() {
+        /*final int[] count = {0};
+        db.collection("Users")
+                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        count[0]++;
+                    }
+                } else {
+                    System.out.println("Error in counting");
+                }
+            }
+        });
+        String size = String.valueOf(count[0]);
+        System.out.println(size);*/
+        String emailVal = email.getText().toString();
+
+        Map<String, Object> newuser = new HashMap<>();
+        int emptyArray[] = new int[5];
+        newuser.put("username", emailVal);
+        newuser.put("rating", 3.5);
+        newuser.put("currentGroups", Arrays.asList() );
+  //      db.collection("Users").document("11").set(newuser);
+        db.collection("Users")
+                .add(newuser)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                       // Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                        System.out.println("Successfully added");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                      //  Log.w(TAG, "Error adding document", e);
+                        System.out.println("unSuccessfully not added");
+
+                    }
+                });
+    }
+
     private void sendUserToDashboard() {
+
+
+
         Intent intent = new Intent(Register.this, Dashboard.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
