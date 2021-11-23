@@ -64,20 +64,19 @@ public class RestaurantList extends ArrayAdapter<Restaurant> {
     }
 
     public double getDistanceToPickup(GeoPoint geo){
-        return 0;
-      /*  Location loc1 = new Location("");
-        loc1.setLatitude(geo.getLatitude());
-        loc1.setLongitude(geo.getLongitude());
+//        Location loc1 = new Location("");
+//        loc1.setLatitude(geo.getLatitude());
+//        loc1.setLongitude(geo.getLongitude());
+//
+//        Location loc2 = new Location("");
+//        loc2.setLatitude(userGeoPoint.getLatitude());
+//        loc2.setLongitude(userGeoPoint.getLongitude());
+//
+//        float distanceInMeters = loc1.distanceTo(loc2);
+//
+//        int dist = (int) (distanceInMeters / 10);
 
-        Location loc2 = new Location("");
-        loc2.setLatitude(userGeoPoint.getLatitude());
-        loc2.setLongitude(userGeoPoint.getLongitude());
-
-        float distanceInMeters = loc1.distanceTo(loc2);
-
-        int dist = (int) (distanceInMeters / 10);
-
-        return dist/100.0;*/
+        return 100.0;
 
     }
 }
