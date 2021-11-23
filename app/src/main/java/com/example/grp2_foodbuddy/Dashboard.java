@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -119,25 +120,24 @@ public class Dashboard extends AppCompatActivity implements LocationListener {
 
     }
 
-    private void createRestaurantAdapter(ArrayList<Restaurant> restaurantList){
+    private void createRestaurantAdapter(ArrayList<Restaurant> restaurantList) {
         RestaurantList adapter = new RestaurantList(Dashboard.this, restaurantList, geoPoint);
         container.setAdapter(adapter);
 
     }
 
     private void updateUserLocation() {
-        if(ContextCompat.checkSelfPermission(Dashboard.this,
-                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+        if (ContextCompat.checkSelfPermission(Dashboard.this,
+                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
 
-            try{
+            try {
                 locationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
-        }
-        else{
+        } else {
             requestLocationPermission();
         }
     }
@@ -147,11 +147,9 @@ public class Dashboard extends AppCompatActivity implements LocationListener {
             {
                 Location curLocation = location;
                 // check if locations has accuracy data
-                if(curLocation.hasAccuracy())
-                {
+                if (curLocation.hasAccuracy()) {
                     // Accuracy is in rage of 20 meters, stop listening we have a fix
-                    if(curLocation.getAccuracy() < 20)
-                    {
+                    if (curLocation.getAccuracy() < 20) {
                         stopGpsListner();
                     }
                 }
@@ -161,21 +159,20 @@ public class Dashboard extends AppCompatActivity implements LocationListener {
     };
 
 
-    private void stopGpsListner()
-    {
-        if(locationManager != null)
+    private void stopGpsListner() {
+        if (locationManager != null)
             locationManager.removeUpdates(locationListener);
     }
 
-    private void requestLocationPermission(){
-        if(ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)){
+    private void requestLocationPermission() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
             new AlertDialog.Builder(this)
                     .setTitle("Permission needed")
                     .setMessage("Location services are needed for basic functionality of FoodBuddy")
                     .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            ActivityCompat.requestPermissions(Dashboard.this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_CODE);
+                            ActivityCompat.requestPermissions(Dashboard.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_CODE);
 
                         }
                     }).setNegativeButton("cancel", new DialogInterface.OnClickListener() {
@@ -186,8 +183,8 @@ public class Dashboard extends AppCompatActivity implements LocationListener {
             }).create().show();
 
 
-        }else{
-            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_CODE);
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_CODE);
         }
 
     }
@@ -202,7 +199,7 @@ public class Dashboard extends AppCompatActivity implements LocationListener {
         }
     }
 
-    private void initSearchBar(){
+    private void initSearchBar() {
         SearchView searchView = (SearchView) findViewById(R.id.restaurant_searchBar);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -215,9 +212,9 @@ public class Dashboard extends AppCompatActivity implements LocationListener {
             public boolean onQueryTextChange(String newText) {
                 ArrayList<Restaurant> filteredRestaurants = new ArrayList<>();
 
-                for(Restaurant restaurant: restaurantList){
+                for (Restaurant restaurant : restaurantList) {
 
-                    if(restaurant.getName().toLowerCase().contains(newText)){
+                    if (restaurant.getName().toLowerCase().contains(newText)) {
                         filteredRestaurants.add(restaurant);
                     }
                 }
@@ -230,14 +227,17 @@ public class Dashboard extends AppCompatActivity implements LocationListener {
         });
 
     }
+
     @Override
     protected void onStart() {
         super.onStart();
 
     }
 
-    private void sendUserToAddGroups(){
+    private void sendUserToAddGroups() {
         //fill code here to create intent and send user to add groups page
+        Intent intent = new Intent(Dashboard.this, NewGroup.class);
+        startActivity(intent);
     }
 
 
@@ -266,15 +266,15 @@ public class Dashboard extends AppCompatActivity implements LocationListener {
 
             ArrayList<Restaurant> filteredRestaurants = new ArrayList<>();
 
-            for(Restaurant restaurant: restaurantList){
+            for (Restaurant restaurant : restaurantList) {
                 ArrayList<Groups> filteredGroups = new ArrayList<>();
 
-                for(Groups group: restaurant.getOngoing()){
-                    if(group.getDistance_to_pickup() <= value){
+                for (Groups group : restaurant.getOngoing()) {
+                    if (group.getDistance_to_pickup() <= value) {
                         filteredGroups.add(group);
                     }
                 }
-                if(filteredGroups.size()>0) {
+                if (filteredGroups.size() > 0) {
                     restaurant.setOngoing(filteredGroups);
                     filteredRestaurants.add(restaurant);
                 }
@@ -285,15 +285,13 @@ public class Dashboard extends AppCompatActivity implements LocationListener {
         });
     }
 
-    public double getLatitude(){
+    public double getLatitude() {
         return geoPoint.getLatitude();
     }
 
-    public double getLongitude(){
+    public double getLongitude() {
         return geoPoint.getLongitude();
     }
-
-
 
 
 }
