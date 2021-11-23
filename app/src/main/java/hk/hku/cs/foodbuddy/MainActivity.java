@@ -231,5 +231,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     public void onLocationChanged(@NonNull Location location) {
         latitude = location.getLatitude();
         longitude = location.getLongitude();
+       Log.d("TAG",  String.valueOf(location.getLatitude()) +" "+ String.valueOf(location.getLongitude()));
+
     }
 }
