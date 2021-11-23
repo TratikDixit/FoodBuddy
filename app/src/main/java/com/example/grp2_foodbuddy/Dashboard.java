@@ -190,7 +190,6 @@ public class Dashboard extends AppCompatActivity implements LocationListener {
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_CODE);
         }
 
-
     }
 
     @Override
