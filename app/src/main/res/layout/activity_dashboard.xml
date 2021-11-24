@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/restaurant_searchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        app:queryHint="Search Restaurant"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="30dp"
+        />
+
+<!--    <ScrollView-->
+<!--        android:id="@+id/restaurantCard_scrollView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginTop="120dp"-->
+<!--        android:layout_marginBottom="50dp"-->
+<!--        android:orientation="vertical"-->
+<!--        >-->
+
+        <ListView
+            android:id="@+id/restaurant_container"
+            android:layout_marginTop="120dp"
+            android:layout_marginBottom="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@android:color/white"
+            />
+
+<!--    </ScrollView>-->
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:id="@+id/bottom_nav_bar"
+        android:layout_gravity="bottom"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_group_FAB"
+        android:src="@drawable/ic_add"
+        app:layout_anchor="@id/bottom_nav_bar"/>
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/distance_slider"
+        android:valueFrom="0.0"
+        android:valueTo="10.0"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="35dp"
+        android:layout_gravity="bottom"
+        />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
