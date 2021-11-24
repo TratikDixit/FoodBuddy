@@ -49,6 +49,7 @@ public class RestaurantList extends ArrayAdapter<Restaurant> {
 
         List<Groups> groups = restaurant.getOngoing();
 
+        System.out.println(restaurant.getName());
         for(Groups group: groups){
             name.setText(restaurant.getName());
             rating.setText(String.valueOf(group.getThreshold_rating()));
@@ -67,14 +68,18 @@ public class RestaurantList extends ArrayAdapter<Restaurant> {
         Location loc1 = new Location("");
         loc1.setLatitude(geo.getLatitude());
         loc1.setLongitude(geo.getLongitude());
+        System.out.println(loc1.getLatitude());
+        System.out.println(loc1.getLongitude());
+
 
         Location loc2 = new Location("");
         loc2.setLatitude(userGeoPoint.getLatitude());
         loc2.setLongitude(userGeoPoint.getLongitude());
 
-        float distanceInMeters = loc1.distanceTo(loc2);
+        float distanceInKm = (loc1.distanceTo(loc2)) / 1000;
 
-        int dist = (int) (distanceInMeters / 10);
+        double dist = (double)Math.round(distanceInKm * 100d) / 100d;
+
 
         return dist;
 
