@@ -1,13 +1,18 @@
 package com.example.grp2_foodbuddy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatImageView;
 
 import com.example.grp2_foodbuddy.databinding.CompleteConversationBinding;
 
@@ -19,6 +24,7 @@ public class ChatScreen extends AppCompatActivity {
 
     private ListView listView;
     private FrameLayout sendButton;
+    private AppCompatImageView homebutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +33,7 @@ public class ChatScreen extends AppCompatActivity {
 
         listView = findViewById((R.id.listView));
         sendButton = (FrameLayout) findViewById((R.id.layoutSend));
+        homebutton = (AppCompatImageView) findViewById(R.id.imageInfo);
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +45,8 @@ public class ChatScreen extends AppCompatActivity {
         items = new ArrayList<>();
         MessageAdapter itemsAdapter = new MessageAdapter(this,items);
         listView.setAdapter(itemsAdapter);
+
+        homebutton.setOnClickListener(v -> goHome());
     }
 
     private void addMessage(View view){
@@ -52,6 +61,13 @@ public class ChatScreen extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Please enter text..", Toast.LENGTH_LONG).show();
         }
 
+    }
+
+    private void goHome(){
+        Intent intent = new Intent(ChatScreen.this, Dashboard.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("username", "");
+        startActivity(intent);
     }
 
 }

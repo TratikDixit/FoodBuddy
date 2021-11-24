@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/background_chat_input.xml" value="0.29384615384615387" />
+        <entry key="app/src/main/res/drawable/background_content_top.xml" value="0.29384615384615387" />
+        <entry key="app/src/main/res/drawable/background_image.xml" value="0.29384615384615387" />
+        <entry key="app/src/main/res/drawable/background_received_message.xml" value="0.29384615384615387" />
+        <entry key="app/src/main/res/drawable/background_sent_message.xml" value="0.19895833333333332" />
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.2984375" />
-        <entry key="app/src/main/res/drawable/ic_exit.xml" value="0.2546875" />
         <entry key="app/src/main/res/drawable/ic_star.xml" value="0.2984375" />
         <entry key="app/src/main/res/drawable/rating_circle.xml" value="0.31634233126258243" />
         <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.335" />
@@ -21,6 +25,7 @@
         <entry key="app/src/main/res/layout/item_container_received_message.xml" value="0.16168478260869565" />
         <entry key="app/src/main/res/layout/new_group.xml" value="0.375" />
         <entry key="app/src/main/res/layout/restaurant_card.xml" value="0.16521739130434782" />
+        <entry key="app/src/main/res/layout/sample_message1.xml" value="0.16168478260869565" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.19322916666666667" />
       </map>
     </option>

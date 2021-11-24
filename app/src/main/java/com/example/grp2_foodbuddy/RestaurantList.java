@@ -70,8 +70,6 @@ public class RestaurantList extends ArrayAdapter<Restaurant> {
             Location loc1 = new Location("");
             loc1.setLatitude(geo.getLatitude());
             loc1.setLongitude(geo.getLongitude());
-            System.out.println(loc1.getLatitude());
-            System.out.println(loc1.getLongitude());
 
             Location loc2 = new Location("");
             loc2.setLatitude(userGeoPoint.getLatitude());
