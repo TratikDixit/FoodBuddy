@@ -15,9 +15,12 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -66,6 +69,17 @@ public class Dashboard extends AppCompatActivity implements LocationListener {
         initSearchBar();
         initSlider();
 
+
+        container.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(Dashboard.this, "clicked", Toast.LENGTH_SHORT).show();
+                // intent -> screen
+                Intent intent = new Intent(Dashboard.this, PreChat.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -295,4 +309,3 @@ public class Dashboard extends AppCompatActivity implements LocationListener {
 
 
 }
-
