@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/textMessage"
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/background_sent_message"
         android:paddingStart="@dimen/_12sdp"
@@ -18,7 +18,7 @@
         app:layout_constraintWidth_max="wrap"
         android:text="Actually, I also want to order a few things"
         android:textColor="@color/white"
-        android:textSize="@dimen/_13ssp"
+        android:textSize="@dimen/_12ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.8"
@@ -32,6 +32,7 @@
         android:textColor="@color/secondary_text"
         android:textSize="@dimen/_8ssp"
         android:text="Tuesday 19:25"
+        android:layout_marginRight="@dimen/_5sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textMessage"/>
 

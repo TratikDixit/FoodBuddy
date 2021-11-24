@@ -9,12 +9,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.grp2_foodbuddy.databinding.CompleteConversationBinding;
-
 import java.util.ArrayList;
 
-public class ChatScreen extends AppCompatActivity {
-
+public class EmptyChatScreen extends AppCompatActivity {
     private ArrayList<String> items;
 
     private ListView listView;
@@ -23,7 +20,7 @@ public class ChatScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.complete_conversation);
+        setContentView(R.layout.empty_chat);
 
         listView = findViewById((R.id.listView));
         sendButton = (FrameLayout) findViewById((R.id.layoutSend));
