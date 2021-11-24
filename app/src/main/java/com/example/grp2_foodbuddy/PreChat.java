@@ -1,8 +1,10 @@
 package com.example.grp2_foodbuddy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,6 +37,7 @@ public class PreChat extends AppCompatActivity implements OnMapReadyCallback {
     List<TextView> usernames = new ArrayList<>();
     List<TextView> ratings = new ArrayList<>();
     TextView bottom;
+    private Button joinButton;
 
 
     @Override
@@ -52,6 +55,9 @@ public class PreChat extends AppCompatActivity implements OnMapReadyCallback {
         ratings.add(findViewById(R.id.textView6));
         ratings.add(findViewById(R.id.textView7));
         bottom = (TextView) findViewById(R.id.textView4);
+        joinButton = (Button) findViewById(R.id.joinButton);
+
+        joinButton.setOnClickListener(v -> openChatScreen());
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("Groups").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -97,6 +103,12 @@ public class PreChat extends AppCompatActivity implements OnMapReadyCallback {
         mapView.getMapAsync(this);
         mapView.onCreate(savedInstanceState);
 
+    }
+
+    private void openChatScreen() {
+        Intent intent = new Intent(PreChat.this, ChatScreen.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     @Override
