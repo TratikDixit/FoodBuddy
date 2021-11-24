@@ -94,22 +94,6 @@ public class Register extends AppCompatActivity {
     }
 
     private void addToFirebase() {
-        /*final int[] count = {0};
-        db.collection("Users")
-                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        count[0]++;
-                    }
-                } else {
-                    System.out.println("Error in counting");
-                }
-            }
-        });
-        String size = String.valueOf(count[0]);
-        System.out.println(size);*/
         String emailVal = email.getText().toString();
 
         Map<String, Object> newuser = new HashMap<>();
