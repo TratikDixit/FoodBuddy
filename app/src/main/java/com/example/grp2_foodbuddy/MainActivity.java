@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         else {
             mAuth.signInWithEmailAndPassword(emailVal, passwordVal).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
-                    System.out.println(task.getResult());
                     sendUserToDashboard();
                     Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
                 } else {
@@ -69,7 +68,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void sendUserToDashboard() {
         Intent intent = new Intent(MainActivity.this, Dashboard.class);
+        String emailVal = email.getText().toString();
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("username", emailVal);
         startActivity(intent);
     }
 }

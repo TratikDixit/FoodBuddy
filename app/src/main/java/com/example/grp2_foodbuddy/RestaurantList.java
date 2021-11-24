@@ -36,7 +36,7 @@ public class RestaurantList extends ArrayAdapter<Restaurant> {
         dashboard = new Dashboard();
         LayoutInflater inflater = context.getLayoutInflater();
 
-        View restaurantItem = inflater.inflate(R.layout.restaurant_card, null, true);
+        View restaurantItem = inflater.inflate(R.layout.restaurant_card, null);
 
         TextView name = (TextView) restaurantItem.findViewById(R.id.restaurant_name);
         TextView time_remaining = (TextView) restaurantItem.findViewById(R.id.time_remaining);
@@ -52,9 +52,9 @@ public class RestaurantList extends ArrayAdapter<Restaurant> {
         for(Groups group: groups){
             name.setText(restaurant.getName());
             rating.setText(String.valueOf(group.getThreshold_rating()));
-            users_in_group.setText(String.valueOf(group.getNumParticipants()) + "/" + String.valueOf(group.getMaxParticipants()));
-            time_remaining.setText(String.valueOf(group.getDuration()));
-            int drawableResourceId = this.context.getResources().getIdentifier("r" + String.valueOf(restaurant.getImageID()), "drawable", this.context.getPackageName());
+            users_in_group.setText("Users: " + String.valueOf(group.getNumParticipants()) + "/" + String.valueOf(group.getMaxParticipants()));
+            time_remaining.setText(String.valueOf(group.getDuration()) + " minutes left");
+            int drawableResourceId = this.context.getResources().getIdentifier("r" + String.valueOf(restaurant.getImageID()) +"_logo", "drawable", this.context.getPackageName());
             img.setImageResource(drawableResourceId);
             group.setDistance_to_pickup(this.getDistanceToPickup(group.getPickup_location()));
             restaurant_distance.setText(String.valueOf(group.getDistance_to_pickup()) + " km away");
@@ -64,19 +64,19 @@ public class RestaurantList extends ArrayAdapter<Restaurant> {
     }
 
     public double getDistanceToPickup(GeoPoint geo){
-//        Location loc1 = new Location("");
-//        loc1.setLatitude(geo.getLatitude());
-//        loc1.setLongitude(geo.getLongitude());
-//
-//        Location loc2 = new Location("");
-//        loc2.setLatitude(userGeoPoint.getLatitude());
-//        loc2.setLongitude(userGeoPoint.getLongitude());
-//
-//        float distanceInMeters = loc1.distanceTo(loc2);
-//
-//        int dist = (int) (distanceInMeters / 10);
+        Location loc1 = new Location("");
+        loc1.setLatitude(geo.getLatitude());
+        loc1.setLongitude(geo.getLongitude());
 
-        return 100.0;
+        Location loc2 = new Location("");
+        loc2.setLatitude(userGeoPoint.getLatitude());
+        loc2.setLongitude(userGeoPoint.getLongitude());
+
+        float distanceInMeters = loc1.distanceTo(loc2);
+
+        int dist = (int) (distanceInMeters / 10);
+
+        return dist;
 
     }
 }

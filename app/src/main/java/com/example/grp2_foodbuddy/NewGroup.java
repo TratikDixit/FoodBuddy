@@ -228,9 +228,9 @@ public class NewGroup extends AppCompatActivity implements LocationListener {
 
     @Override
     public void onLocationChanged(@NonNull Location location) {
-        latitude = location.getLatitude();
-        longitude = location.getLongitude();
-        Log.d("TAG", String.valueOf(location.getLatitude()) + " " + String.valueOf(location.getLongitude()));
+//        latitude = location.getLatitude();
+//        longitude = location.getLongitude();
+//        Log.d("TAG", String.valueOf(location.getLatitude()) + " " + String.valueOf(location.getLongitude()));
 
     }
 }
