@@ -47,6 +47,16 @@ dependencies {
 
     implementation 'com.google.android.gms:play-services-maps:18.0.0'
 
+<<<<<<< HEAD
+=======
+
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+
+
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+>>>>>>> f4a3f500fe16ba5eaeab3d41930ebe3998aeef91
     dependencies {
         implementation 'com.google.android.gms:play-services-maps:18.0.0'
     }
