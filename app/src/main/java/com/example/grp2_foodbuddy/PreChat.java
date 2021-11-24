@@ -103,6 +103,9 @@ public class PreChat extends AppCompatActivity implements OnMapReadyCallback {
     public void onMapReady(@NonNull GoogleMap googleMap) {
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.title("Pickup Point");
+        if (pickUpPoint == null) {
+            pickUpPoint = new LatLng(22.2829989,114.1370848);
+        }
         markerOptions.position(pickUpPoint);
         googleMap.addMarker(markerOptions);
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(pickUpPoint, 15);
