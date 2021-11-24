@@ -50,6 +50,8 @@ public class Dashboard extends AppCompatActivity implements LocationListener {
     private GeoPoint geoPoint;
     private FloatingActionButton fab;
     private Slider slider;
+    private Intent intent;
+    private String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,11 +59,15 @@ public class Dashboard extends AppCompatActivity implements LocationListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         database = FirebaseFirestore.getInstance();
-        container = (ListView) findViewById(R.id.restaurant_container);
+        container = (ListView) findViewById(R.id.ongoing_orders_restaurant_container);
         restaurantList = new ArrayList<>();
         slider = (Slider) findViewById(R.id.distance_slider);
         fab = (FloatingActionButton) findViewById(R.id.add_group_FAB);
         fab.setOnClickListener(v -> sendUserToAddGroups());
+        intent = getIntent();
+        userName = intent.getStringExtra("username");
+        System.out.println(userName);
+
 
         LocationManager locationManager = (LocationManager) getSystemService(this.LOCATION_SERVICE);
         updateUserLocation();

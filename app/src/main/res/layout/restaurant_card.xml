@@ -13,8 +13,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             app:cardCornerRadius="15dp"
-
-
         >
 
             <RelativeLayout
@@ -28,7 +26,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_alignParentTop="true"
+                    android:scaleType="centerCrop"
                      />
+
 
 
                 <TextView
@@ -42,6 +42,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="15dp"
                     android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/falling_sky_bold"
                     />
 
 
@@ -60,24 +62,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/restaurant_name"
-                    android:layout_toEndOf="@+id/users_in_group"
-                    android:layout_marginLeft="60dp"
+                    android:layout_alignParentRight="true"
                     android:text="Distance"
                     android:textSize="15sp"
-
-                    />
-
-                <TextView
-                    android:id="@+id/restaurant_trust"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/restaurant_name"
-                    android:layout_toEndOf="@+id/restaurant_distance"
-                    android:text="Trust"
-                    android:textSize="15sp"
-                    android:layout_marginLeft="55dp"
-                    android:drawableLeft="@drawable/ic_star"
-                    android:drawablePadding="2dp"
 
                     />
 
@@ -85,13 +72,31 @@
                     android:id="@+id/time_remaining"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/restaurant_trust"
+                    android:layout_below="@+id/restaurant_distance"
                     android:text="Time Remaining"
                     android:textSize="15dp"
                     android:layout_marginBottom="10dp"
                     android:paddingLeft="10dp"
 
                     />
+
+                <TextView
+                    android:id="@+id/restaurant_trust"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_above="@id/time_remaining"
+                    android:layout_marginBottom="73dp"
+                    android:textSize="13sp"
+                    android:paddingTop="5dp"
+                    android:drawableBottom="@drawable/ic_star"
+                    android:paddingBottom="6dp"
+                    android:textColor="@color/black"
+                    android:background="@drawable/rating_circle"
+                    android:gravity="center"
+                    />
+
 
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
