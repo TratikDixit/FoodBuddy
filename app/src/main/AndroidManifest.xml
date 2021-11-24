@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.grp2_foodbuddy">
-<<<<<<< HEAD
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-=======
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
->>>>>>> f4a3f500fe16ba5eaeab3d41930ebe3998aeef91
 
     <application
         android:allowBackup="true"
@@ -22,12 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Grp2_FoodBuddy">
         <activity
-<<<<<<< HEAD
             android:name=".Form"
             android:exported="false" />
         <activity
-=======
->>>>>>> f4a3f500fe16ba5eaeab3d41930ebe3998aeef91
             android:name=".Dashboard"
             android:exported="true" />
         <activity

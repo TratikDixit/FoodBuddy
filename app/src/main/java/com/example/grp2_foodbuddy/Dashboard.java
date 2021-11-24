@@ -76,16 +76,16 @@ public class Dashboard extends AppCompatActivity implements LocationListener {
         initSlider();
 
 
-//        container.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Toast.makeText(Dashboard.this, "clicked", Toast.LENGTH_SHORT).show();
-//                // intent -> screen
-//                Intent intent = new Intent(Dashboard.this, PreChat.class);
-//                startActivity(intent);
-//            }
-//        });
+        container.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(Dashboard.this, "clicked", Toast.LENGTH_SHORT).show();
+                // intent -> screen
+                Intent intent = new Intent(Dashboard.this, PreChat.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

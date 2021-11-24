@@ -4,10 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
     android:layout_margin="16dp"
-=======
->>>>>>> f4a3f500fe16ba5eaeab3d41930ebe3998aeef91
     android:clickable="true"
     android:focusableInTouchMode="true"
     android:orientation="vertical"
@@ -17,10 +14,7 @@
         android:id="@+id/searchBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:layout_marginBottom="8dp"
-=======
->>>>>>> f4a3f500fe16ba5eaeab3d41930ebe3998aeef91
         android:drawableRight="@drawable/ic_action_name"
         android:hint="Search Restaurants"
         android:imeOptions="actionDone"
@@ -37,10 +31,7 @@
         android:id="@+id/distance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:layout_marginBottom="16dp"
-=======
->>>>>>> f4a3f500fe16ba5eaeab3d41930ebe3998aeef91
         android:gravity="center"
         android:text="0 metres"
         android:textSize="20sp" />
