@@ -144,10 +144,6 @@ public class NewGroup extends AppCompatActivity implements LocationListener {
                 int id = restaurantModelList.get(i).getImage();
                 intent.putExtra("id", id);
                 startActivity(intent);
-                Toast.makeText(NewGroup.this, "You Clicked on " + restaurantModelList.get(i).getName(), Toast.LENGTH_SHORT).show();
-
-                Toast.makeText(NewGroup.this, "You Clicked on " + restaurantModelList.get(i).getName(), Toast.LENGTH_SHORT).show();
-
             }
         });
 

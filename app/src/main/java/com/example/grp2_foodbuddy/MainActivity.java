@@ -44,26 +44,25 @@ public class MainActivity extends AppCompatActivity {
         loginAccount.setOnClickListener(v -> PerformLogin());
     }
     private void PerformLogin() {
-        sendUserToDashboard();
-//        String emailVal = email.getText().toString();
-//        String passwordVal = password.getText().toString();
-//
-//        if (!emailVal.matches(emailPattern)) {
-//            email.setError("Invalid Email");
-//        } else if (passwordVal.isEmpty() || passwordVal.length() < 6) {
-//            password.setError("Ensure password has length of more than 6");
-//        }
-//        else {
-//            mAuth.signInWithEmailAndPassword(emailVal, passwordVal).addOnCompleteListener(task -> {
-//                if (task.isSuccessful()) {
-//                    sendUserToDashboard();
-//                    Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
-//                } else {
-//                    Toast.makeText(MainActivity.this, "User not registered", Toast.LENGTH_LONG).show();
-//
-//                }
-//            });
-//        }
+        String emailVal = email.getText().toString();
+        String passwordVal = password.getText().toString();
+
+        if (!emailVal.matches(emailPattern)) {
+            email.setError("Invalid Email");
+        } else if (passwordVal.isEmpty() || passwordVal.length() < 6) {
+            password.setError("Ensure password has length of more than 6");
+        }
+        else {
+            mAuth.signInWithEmailAndPassword(emailVal, passwordVal).addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    sendUserToDashboard();
+                    Toast.makeText(MainActivity.this, "Welcome to FoodBuddy!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "User not registered", Toast.LENGTH_LONG).show();
+
+                }
+            });
+        }
     }
 
     private void sendUserToDashboard() {

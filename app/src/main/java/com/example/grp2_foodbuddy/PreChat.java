@@ -45,8 +45,6 @@ public class PreChat extends AppCompatActivity implements OnMapReadyCallback {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prechat);
 
-        Toast.makeText(PreChat.this, "Wazup", Toast.LENGTH_SHORT).show();
-
 
         usernames.add(findViewById(R.id.textView));
         usernames.add(findViewById(R.id.textView2));
