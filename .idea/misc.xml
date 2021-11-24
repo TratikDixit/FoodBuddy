@@ -9,11 +9,16 @@
         <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_form.xml" value="0.13489583333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/activity_prechat.xml" value="0.16168478260869565" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/complete_conversation.xml" value="0.16168478260869565" />
         <entry key="app/src/main/res/layout/content_dashboard.xml" value="0.12685185185185185" />
+        <entry key="app/src/main/res/layout/empty_chat.xml" value="0.16168478260869565" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.12821672474040371" />
-        <entry key="app/src/main/res/layout/new_group.xml" value="0.15677083333333333" />
+        <entry key="app/src/main/res/layout/grid_item.xml" value="0.16168478260869565" />
+        <entry key="app/src/main/res/layout/item_container_received_message.xml" value="0.16168478260869565" />
+        <entry key="app/src/main/res/layout/new_group.xml" value="0.375" />
         <entry key="app/src/main/res/layout/restaurant_card.xml" value="0.16521739130434782" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.19322916666666667" />
       </map>

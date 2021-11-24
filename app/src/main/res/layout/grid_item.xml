@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="20dp"
-    android:gravity="center">
+    android:gravity="center"
+    >
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
         android:scaleType="centerCrop"
-        android:id="@+id/grid_image"/>
+        android:id="@+id/grid_image"
+        android:layout_marginBottom="10dp"
+        />
 
 
     <TextView
@@ -18,7 +21,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/item_name"
         android:text="Rose"
-        android:textSize="26sp"
-        android:layout_marginTop="6dp"/>
+        android:textSize="22sp"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/falling_sky"
+        />
 
 </LinearLayout>
