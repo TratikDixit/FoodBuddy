@@ -68,8 +68,9 @@ public class PreChat extends AppCompatActivity implements OnMapReadyCallback {
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                     if (task.isSuccessful()) {
                                         DocumentSnapshot document = task.getResult();
-                                        if (document.exists()) {
+                                        if (document.exists() && finalI < usernames.size()) {
                                             Log.d("Atiab", "DocumentSnapshot data: " + document.getData());
+                                            Log.d("finalI", "" + finalI);
                                             usernames.get(finalI).setText("" + document.getString("username"));
                                             ratings.get(finalI).setText("" + document.getDouble("rating"));
                                         } else {

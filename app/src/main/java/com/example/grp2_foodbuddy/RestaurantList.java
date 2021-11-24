@@ -65,6 +65,7 @@ public class RestaurantList extends ArrayAdapter<Restaurant> {
     }
 
     public double getDistanceToPickup(GeoPoint geo){
+//        return 1.0;
         Location loc1 = new Location("");
         loc1.setLatitude(geo.getLatitude());
         loc1.setLongitude(geo.getLongitude());
