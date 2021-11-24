@@ -2,6 +2,7 @@ package com.example.grp2_foodbuddy;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Rect;
 import android.location.Location;
@@ -38,7 +39,6 @@ import java.util.List;
 public class NewGroup extends AppCompatActivity implements LocationListener {
 
 
-    ActivityMainBinding binding;
     LocationManager locationManager;
     double latitude;
     double longitude;
@@ -139,9 +139,11 @@ public class NewGroup extends AppCompatActivity implements LocationListener {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+                Intent intent = new Intent(NewGroup.this, Form.class);
+                int id = restaurantModelList.get(i).getImage();
+                intent.putExtra("id", id);
+                startActivity(intent);
                 Toast.makeText(NewGroup.this, "You Clicked on " + restaurantModelList.get(i).getName(), Toast.LENGTH_SHORT).show();
-
             }
         });
 
